@@ -1,20 +1,23 @@
 require("dotenv").config();
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
+const session = require("express-session");
+const passport = require("passport");
+
+app.use(
+  session({
+    secret: "Our little secret",
+    resave: false,
+    saveUninitialized: false
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose
-  .connect("mongodb://localhost:27017/fitnessFriendDB", {
-    useNewUrlParser: true
-  })
-  .then(() => console.log("Connected to DB..."))
-  .catch(err => console.log(err));
 
-app.get("/test", function(req, res) {
-  console.log("merge");
-});
+app.use("/api", require(__dirname + "/users/userController"));
 
-app.listen(3000, () => console.log("Server is running..."));
 module.exports = app;
