@@ -1,0 +1,34 @@
+By default Express requests are sequential and no request can be linked to each other. There is no way to know if this request comes from a client that already performed a request previously.
+Users cannot be identified unless using some kind of mechanism that makes it possible.
+That’s what sessions are.
+When implemented, every user of you API or website will be assigned a unique session, and this allows you to store the user state.
+You can install it using
+
+npm install express-session
+and once you’re done, you can instantiate it in your application with
+
+const session = require('express-session')
+This is a middleware, so you install it in Express using
+
+const express = require('express')
+const session = require('express-session')
+
+const app = express()
+app.use(session(
+  'secret': '343ji43j4n3jn4jk3n'
+))
+After this is done, all the requests to the app routes are now using sessions.
+
+secret is the only required parameter, but there are many more you can use. It should be a randomly unique string for you application.
+
+Where is the session data stored? it depends on how you set up the express-session module.
+
+It can store session data in
+
+memory, not meant for production
+a database like MySQL or Mongo
+a memory cache like Redis or Memcached
+There is a big list of 3rd packages that implement a wide variety of different compatible caching stores in https://github.com/expressjs/session
+
+All solutions store the session id in a cookie, and keep the data server-side. The client will receive the session id in a cookie, and will send it along with every HTTP request.
+

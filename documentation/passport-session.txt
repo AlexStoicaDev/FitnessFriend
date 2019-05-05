@@ -1,0 +1,47 @@
+passport.initialize() is a middle-ware that initialises Passport.
+
+Middlewares are functions that have access to the request object (req), the response object (res),
+ and the next middleware function in the application’s request-response cycle.
+
+Passport is an authentication middleware for Node that authenticates requests.
+
+So basically passport.initialize() initialises the authentication module.
+passport.session() is another middleware that alters the request object and change the 'user' value that 
+is currently the session id (from the client cookie) into the true deserialized user object.
+
+
+passport.session() acts as a middleware to alter the req object and
+ change the 'user' value that is currently the session id
+ (from the client cookie) into the true deserialized user object.
+
+Whilst the other answers make some good points I thought that some more specific detail could be provided.
+
+app.use(passport.session());
+is equivalent to
+
+app.use(passport.authenticate('session'));
+Where 'session' refers to the following strategy that is bundled with passportJS.
+
+https://github.com/jaredhanson/passport/blob/master/lib/strategies/session.js
+
+Specifically lines 59-60:
+
+var property = req._passport.instance._userProperty || 'user';
+req[property] = user;
+Where it essentially acts as a middleware and alters the value of the 'user' property in the req object to 
+contain the deserialized identity of the user. To allow this to work correctly you must 
+include serializeUser and deserializeUser functions in your custom code.
+
+passport.serializeUser(function (user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function (user, done) {
+    //If using Mongoose with MongoDB; if other you will need JS specific to that schema.
+    User.findById(user.id, function (err, user) {
+        done(err, user);
+    });
+});
+This will find the correct user from the database and pass it as a closure variable 
+into the callback done(err,user); so the above code in the passport.session() can replace the 'user'
+ value in the req object and pass on to the next middleware in the pile.
