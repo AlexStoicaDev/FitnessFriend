@@ -40,3 +40,9 @@ module.exports.login = function(req, res) {
 module.exports.googleAuth = passport.authenticate("google", {
   scope: ["profile"]
 });
+
+module.exports.findUserById = function(userId, callback) {
+  User.findById(userId, function(err, foundUser) {
+    callback(foundUser);
+  });
+};

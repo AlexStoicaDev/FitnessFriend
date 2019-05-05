@@ -1,6 +1,7 @@
 const findOrCreate = require("mongoose-findorcreate");
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
+require("/FitnessFriend/diets/dietModel");
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -10,7 +11,7 @@ const userSchema = new mongoose.Schema({
     type: String
   },
   googleId: String,
-  secret: String
+  diets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Diet" }]
 });
 
 userSchema.plugin(passportLocalMongoose);

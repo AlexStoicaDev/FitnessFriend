@@ -3,6 +3,7 @@ require("/FitnessFriend/users/userModel.js");
 require("/FitnessFriend/foods/foodModel.js");
 
 const dietSchema = new mongoose.Schema({
+  //should be used for reactivate diet functionality
   currentDiet: {
     type: Boolean,
     required: true
@@ -28,3 +29,5 @@ const dietSchema = new mongoose.Schema({
   foods: [{ type: mongoose.Schema.Types.ObjectId, ref: "Food" }],
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }
 });
+
+mongoose.model("Diet", dietSchema);

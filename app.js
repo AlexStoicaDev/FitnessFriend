@@ -7,7 +7,7 @@ const passport = require("passport");
 
 app.use(
   session({
-    secret: "Our little secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
   })
@@ -19,5 +19,5 @@ app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", require(__dirname + "/users/userController"));
-
+app.use("/api", require(__dirname + "/diets/dietController"));
 module.exports = app;

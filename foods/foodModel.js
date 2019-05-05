@@ -25,4 +25,4 @@ const foodSchema = new mongoose.Schema({
   vegetarian: Boolean
 });
 
-mongoose.Model("Food", foodSchema);
+mongoose.model("Food", foodSchema);
