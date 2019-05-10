@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const passport = require("/FitnessFriend/config/passport.js");
+const passport = require("passport");
 const userService = require(__dirname + "/userService");
 
 router.post("/register", userService.register);

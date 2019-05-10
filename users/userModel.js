@@ -1,7 +1,7 @@
 const findOrCreate = require("mongoose-findorcreate");
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
-require("/FitnessFriend/diets/dietModel");
+require("../diets/dietModel");
 
 const userSchema = new mongoose.Schema({
   username: {

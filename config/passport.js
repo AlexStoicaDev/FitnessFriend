@@ -1,6 +1,6 @@
 const passport = require("passport");
 const mongoose = require("mongoose");
-require("/FitnessFriend/users/userModel.js");
+require("../users/userModel.js");
 const User = mongoose.model("User");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
@@ -33,4 +33,3 @@ passport.use(
     }
   )
 );
-module.exports = passport;

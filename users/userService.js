@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 require(__dirname + "/userModel.js");
 const User = mongoose.model("User");
 const passport = require("passport");
-require("/FitnessFriend/config/passport.js");
+require("../config/passport.js");
 
 module.exports.register = function(req, res) {
   User.register({ username: req.body.username }, req.body.password)
