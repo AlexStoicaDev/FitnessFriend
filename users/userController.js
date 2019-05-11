@@ -29,4 +29,7 @@ router.put(
   userService.unsubscribeToDailyTextMessage
 );
 router.post("/send-text-messages", userService.sendTextMessages);
+router.delete("/delete/:userId", userService.deleteUser);
+router.put("/update/:userId", userService.updateUser);
+
 module.exports = router;

@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  role: {
+    type: String,
+    enum: ["basic", "admin"],
+    default: "basic"
+  },
   phoneNumber: String,
   diets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Diet" }]
 });

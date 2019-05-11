@@ -88,6 +88,13 @@ schedule.scheduleJob("0 9 * * *", function() {
   sendTextMessages();
 });
 function sendTextMessages(req, res) {
+  if (req) {
+    if (!req.isAuthenticated() || req.user.role !== "admin") {
+      res.status(401);
+      res.json({ message: "Unauthorized" });
+      return res;
+    }
+  }
   User.find({ subscribedToTextMessages: true }, function(err, subscribers) {
     subscribers.forEach(subscriber => {
       Diet.findById(subscriber.diets[subscriber.diets.length - 1], function(
@@ -117,3 +124,33 @@ function sendTextMessages(req, res) {
 }
 
 module.exports.sendTextMessages = sendTextMessages;
+
+module.exports.deleteUser = function(req, res) {
+  if (!req.isAuthenticated() || req.user.role !== "admin") {
+    res.status(401);
+    res.json({ message: "Unauthorized" });
+    return res;
+  } else {
+    User.deleteOne({ _id: req.params.userId }, function(err) {
+      if (err) {
+        res.send(err);
+      }
+      res.send("User has been deleted");
+    });
+  }
+};
+
+module.exports.updateUser = function(req, res) {
+  if (!req.isAuthenticated() || req.user.role !== "admin") {
+    res.status(401);
+    res.json({ message: "Unauthorized" });
+    return res;
+  } else {
+    User.updateOne({ _id: req.params.userId }, { ...req.body }, function(err) {
+      if (err) {
+        res.send(err);
+      }
+      res.send("User has been updated");
+    });
+  }
+};
