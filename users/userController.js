@@ -13,5 +13,15 @@ router.get(
     res.send("login with google");
   }
 );
+router.get("/auth/facebook", passport.authenticate("facebook"));
+
+router.get(
+  "/auth/facebook/fitness",
+  passport.authenticate("facebook", { failureRedirect: "/login" }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.send("login with facebook");
+  }
+);
 
 module.exports = router;

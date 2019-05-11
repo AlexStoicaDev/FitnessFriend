@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     type: String
   },
   googleId: String,
+  facebookId: String,
   diets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Diet" }]
 });
 
