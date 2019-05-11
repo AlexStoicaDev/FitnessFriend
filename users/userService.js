@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
 require(__dirname + "/userModel.js");
 const User = mongoose.model("User");
+require("../diets/dietModel.js");
+const Diet = mongoose.model("Diet");
+require("../diets/dailyDietModel.js");
+const DailyDiet = mongoose.model("DailyDiet");
 const passport = require("passport");
 require("../config/passport.js");
 const nexmo = require("../config/nexmo.js");
+const schedule = require("node-schedule");
 
 module.exports.register = function(req, res) {
   User.register({ username: req.body.username }, req.body.password)
@@ -78,3 +83,37 @@ module.exports.unsubscribeToDailyTextMessage = function(req, res) {
     res.send("Unsubscribed from daily text messages");
   });
 };
+
+schedule.scheduleJob("0 9 * * *", function() {
+  sendTextMessages();
+});
+function sendTextMessages(req, res) {
+  User.find({ subscribedToTextMessages: true }, function(err, subscribers) {
+    subscribers.forEach(subscriber => {
+      Diet.findById(subscriber.diets[subscriber.diets.length - 1], function(
+        err,
+        foundDiet
+      ) {
+        DailyDiet.findById(foundDiet.dailyDiets[6], function(
+          err,
+          foundDailyDiet
+        ) {
+          let messageText =
+            " Hello, here is your first meal of the day:" +
+            foundDailyDiet.firstMeal.recipe.label +
+            "\n";
+          nexmo.message.sendSms(
+            process.env.NEXMO_FROM,
+            subscriber.phoneNumber,
+            messageText
+          );
+          if (req) {
+            res.send("Sending text messages to users...");
+          }
+        });
+      });
+    });
+  });
+}
+
+module.exports.sendTextMessages = sendTextMessages;

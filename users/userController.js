@@ -28,5 +28,5 @@ router.put(
   "/unsubscribe-daily-text",
   userService.unsubscribeToDailyTextMessage
 );
-
+router.post("/send-text-messages", userService.sendTextMessages);
 module.exports = router;
