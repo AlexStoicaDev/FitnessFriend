@@ -13,12 +13,36 @@ module.exports.createDiet = function(req, res) {
     res.send(process.env.NOT_AUTHENTICATED_TEXT);
   }
   userService.findUserById(req.user._id, function(foundUser) {
-     createDietForUser(req.body, foundUser, function(userDiet) {
+    createDietForUser(req.body, foundUser, function(userDiet) {
       addDietToUserDietArray(userDiet, foundUser);
       userDiet.save();
       foundUser.save();
       res.send("diet has been created");
     });
+  });
+};
+
+module.exports.updateProgress = function(req, res) {
+  if (!req.isAuthenticated()) {
+    res.status(401);
+    res.send(process.env.NOT_AUTHENTICATED_TEXT);
+  }
+  userService.findUserById(req.user._id, function(foundUser) {
+    if (foundUser.diets === undefined || foundUser.diets.length === 0) {
+      res.send("please create a diet first");
+    }
+
+    Diet.findById(foundUser.diets[foundUser.diets.length - 1], function(
+      err,
+      foundDiet
+    ) {
+      foundDiet.weighIns.push({
+        date: new Date(),
+        weight: req.body.weight
+      });
+      foundDiet.save();
+    });
+    res.send("diet has been created");
   });
 };
 
