@@ -23,5 +23,10 @@ router.get(
     res.send("login with facebook");
   }
 );
+router.put("/subscribe-daily-text", userService.subscribeToDailyTextMessage);
+router.put(
+  "/unsubscribe-daily-text",
+  userService.unsubscribeToDailyTextMessage
+);
 
 module.exports = router;

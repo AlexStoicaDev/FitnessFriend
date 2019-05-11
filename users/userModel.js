@@ -12,6 +12,11 @@ const userSchema = new mongoose.Schema({
   },
   googleId: String,
   facebookId: String,
+  subscribedToTextMessages: {
+    type: Boolean,
+    default: false
+  },
+  phoneNumber: String,
   diets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Diet" }]
 });
 
