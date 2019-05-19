@@ -60,19 +60,6 @@ app.route("/api/program").get(function(req, res) {
               name: foundDailyDiet.firstMeal.recipe.label,
               ingredients: foundDailyDiet.firstMeal.recipe.ingredientLines,
               findOutMore: foundDailyDiet.firstMeal.recipe.url
-              // calories: parseInt(
-              //   foundDailyDiet.firstMeal.recipe.totalNutrients.ENERC_KCAL
-              //     .quantity
-              // ),
-              // fats: parseInt(
-              //   foundDailyDiet.firstMeal.recipe.totalNutrients.FAT.quantity
-              // ),
-              // carbs: parseInt(
-              //   foundDailyDiet.firstMeal.recipe.totalNutrients.CHOCDF.quantity
-              // ),
-              // proteins: parseInt(
-              //   foundDailyDiet.firstMeal.recipe.totalNutrients.PROCNT.quantity
-              // )
             },
             secondMeal: {
               imageUrl: foundDailyDiet.secondMeal.recipe.image,

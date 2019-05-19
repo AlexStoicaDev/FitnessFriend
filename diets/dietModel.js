@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 require("../users/userModel.js");
 
 const dietSchema = new mongoose.Schema({
-  //should be used for reactivate diet functionality
   currentDiet: {
     type: Boolean,
     required: true
