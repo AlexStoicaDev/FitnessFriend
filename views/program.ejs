@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>FitnessFriend</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css"
+    />
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+
+    <link rel="stylesheet" href="css/aos.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="site-navbar-wrap js-site-navbar bg-white">
+      <div class="container">
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-center">
+              <div class="col-2">
+                <h2 class="mb-0 site-logo">
+                  <a href="/api"><strong>Fitness</strong>Friend</a>
+                </h2>
+              </div>
+              <div class="col-10">
+                <nav class="site-navigation text-right" role="navigation">
+                  <div class="container">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                      <a
+                        href="#"
+                        class="site-menu-toggle js-menu-toggle text-black"
+                        ><span class="icon-menu h3"></span
+                      ></a>
+                    </div>
+                    
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+                      
+                      
+                        <li>
+                          <a href="/api/joinText"
+                            >Subscribe</a
+                          >
+                        </li>
+                        
+                      <li><a href="/api/createMealPlanButton">Create a new Meal Plan</a></li>
+                      <li><a href="/api/">Home</a></li>
+                      <li><a href="/api/logout">Log out</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-12">
+            <br />
+            <h2 class="site-section-heading text-center">Diet</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-center mb-4">
+            <div class="border p-4 text-with-icon">
+              <span
+                class="flaticon-weightlifting icon display-4 mb-4 d-block text-primary"
+              ></span>
+              <h2 class="h5"><a href="#01">Monday</a></h2>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="border p-4 text-with-icon">
+              <span
+                class="flaticon-exercise-1 icon display-4 mb-4 d-block text-primary"
+              ></span>
+              <h2 class="h5"><a href="#02">Tuesday</a></h2>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="border p-4 text-with-icon">
+              <span
+                class="flaticon-exercise-2 icon display-4 mb-4 d-block text-primary"
+              ></span>
+              <h2 class="h5"><a href="#03">Wednesday</a></h2>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="border p-4 text-with-icon">
+              <span
+                class="flaticon-weightlifting-1 icon display-4 mb-4 d-block text-primary"
+              ></span>
+              <h2 class="h5"><a href="#04">Thursday</a></h2>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="border p-4 text-with-icon">
+              <span
+                class="flaticon-exercise-3 icon display-4 mb-4 d-block text-primary"
+              ></span>
+              <h2 class="h5"><a href="#05">Friday</a></h2>
+            </div>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="border p-4 text-with-icon">
+              <span
+                class="flaticon-exercise icon display-4 mb-4 d-block text-primary"
+              ></span>
+
+              <h2 class="h5"><a href="#06">Saturday</a></h2>
+            </div>
+          </div>
+         
+      
+        
+        </div>
+        
+      </div>
+      
+    </div>
+   
+    
+
+    <div class="site-section border-top" id="01">
+      <h2 class="site-section-heading text-center" }>
+        <strong>Monday</strong>
+      </h2>
+      <br /><br /><br />
+
+      <div class="site-section">
+      <div class="container" style="margin-right:40px;">
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <p class="mb-5">
+              <img src=<%=dailyDiets[0].firstMeal.imageUrl%> alt="Image"
+              class="img-fluid rounded" />
+            </p>
+          </div>
+          <div class="col-lg-5 mr-auto order-2 order-lg-1">
+            <h2 class="mb-3">
+              First meal - <%=dailyDiets[0].firstMeal.name%>
+            </h2>
+            <% dailyDiets[0].firstMeal.ingredients.forEach(function(ingredient){ %>
+              <p> <%=ingredient%></p>
+            <% } )%>
+           
+            <!-- <p class="mb-4">
+                calories:  <%=dailyDiets[0].firstMeal.calories%>
+              
+                fats:  <%=dailyDiets[0].firstMeal.fats%>
+              
+                proteins:  <%=dailyDiets[0].firstMeal.proteins%>
+                   carbs:  <%=dailyDiets[0].firstMeal.carbs%>
+                 </p> -->
+                 <a href=<%=dailyDiets[0].firstMeal.findOutMore%>>Find Out How To Prepare It </a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container" style="margin-right:40px;">
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <p class="mb-5">
+              <img src=<%=dailyDiets[0].secondMeal.imageUrl%> alt="Image"
+              class="img-fluid rounded" />
+            </p>
+          </div>
+          <div class="col-lg-5 mr-auto order-2 order-lg-1">
+            <h2 class="mb-3">
+              Second meal - <%=dailyDiets[0].secondMeal.name%>
+            </h2>
+            <% dailyDiets[0].secondMeal.ingredients.forEach(function(ingredient){ %>
+              <p> <%=ingredient%></p>
+            <% } )%>
+            <!-- <p class="mb-4">
+                calories:  <%=dailyDiets[0].secondMeal.calories%>
+               
+                fats:  <%=dailyDiets[0].secondMeal.fats%>
+              
+                proteins:  <%=dailyDiets[0].secondMeal.proteins%>
+              
+                   carbs:  <%=dailyDiets[0].secondMeal.carbs%>
+                 </p> -->
+                 <a href=<%=dailyDiets[0].secondMeal.findOutMore%>>Find Out How To Prepare It </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+        <div class="container" style="margin-right:40px;">
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2">
+              <p class="mb-5">
+                <img src=<%=dailyDiets[0].thirdMeal.imageUrl%> alt="Image"
+                class="img-fluid rounded" />
+              </p>
+            </div>
+            <div class="col-lg-5 mr-auto order-2 order-lg-1">
+              <h2 class="mb-3">
+                  Third meal - <%=dailyDiets[0].thirdMeal.name%>
+              </h2>
+              <% dailyDiets[0].thirdMeal.ingredients.forEach(function(ingredient){ %>
+                <p>-> <%=ingredient%></p>
+              <% } )%>
+              <!-- <p class="mb-4">
+                 calories:  <%=dailyDiets[0].thirdMeal.calories%>
+               
+                 fats:  <%=dailyDiets[0].thirdMeal.fats%>
+               
+                 proteins:  <%=dailyDiets[0].thirdMeal.proteins%>
+               
+                    carbs:  <%=dailyDiets[0].thirdMeal.carbs%>
+                  </p> -->
+                  <a href=<%=dailyDiets[0].thirdMeal.findOutMore%>>Find Out How To Prepare It </a>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section border-top" id="02">
+          <h2 class="site-section-heading text-center" }>
+            <strong>Tuesday</strong>
+          </h2>
+          <br /><br /><br />
+    
+          <div class="site-section">
+          <div class="container" style="margin-right:40px;">
+            <div class="row">
+              <div class="col-lg-6 order-1 order-lg-2">
+                <p class="mb-5">
+                  <img src=<%=dailyDiets[1].firstMeal.imageUrl%> alt="Image"
+                  class="img-fluid rounded" />
+                </p>
+              </div>
+              <div class="col-lg-5 mr-auto order-2 order-lg-1">
+                <h2 class="mb-3">
+                  First meal - <%=dailyDiets[1].firstMeal.name%>
+                </h2>
+                <% dailyDiets[1].firstMeal.ingredients.forEach(function(ingredient){ %>
+                  <p> <%=ingredient%></p>
+                <% } )%>
+               
+                <!-- <p class="mb-4">
+                    calories:  <%=dailyDiets[1].firstMeal.calories%>
+                   
+                    fats:  <%=dailyDiets[1].firstMeal.fats%>
+                  
+                    proteins:  <%=dailyDiets[1].firstMeal.proteins%>
+                  
+                       carbs:  <%=dailyDiets[1].firstMeal.carbs%>
+                     </p> -->
+                     <a href=<%=dailyDiets[1].firstMeal.findOutMore%>>Find Out How To Prepare It </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="site-section">
+          <div class="container" style="margin-right:40px;">
+            <div class="row">
+              <div class="col-lg-6 order-1 order-lg-2">
+                <p class="mb-5">
+                  <img src=<%=dailyDiets[1].secondMeal.imageUrl%> alt="Image"
+                  class="img-fluid rounded" />
+                </p>
+              </div>
+              <div class="col-lg-5 mr-auto order-2 order-lg-1">
+                <h2 class="mb-3">
+                  Second meal - <%=dailyDiets[1].secondMeal.name%>
+                </h2>
+                <% dailyDiets[1].secondMeal.ingredients.forEach(function(ingredient){ %>
+                  <p> <%=ingredient%></p>
+                <% } )%>
+                <!-- <p class="mb-4">
+                    calories:  <%=dailyDiets[1].secondMeal.calories%>
+                 
+                    fats:  <%=dailyDiets[1].secondMeal.fats%>
+                  
+                    proteins:  <%=dailyDiets[1].secondMeal.proteins%>
+                  
+                       carbs:  <%=dailyDiets[1].secondMeal.carbs%>
+                     </p> -->
+                     <a href=<%=dailyDiets[1].secondMeal.findOutMore%>>Find Out How To Prepare It </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="site-section">
+            <div class="container" style="margin-right:40px;">
+              <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2">
+                  <p class="mb-5">
+                    <img src=<%=dailyDiets[1].thirdMeal.imageUrl%> alt="Image"
+                    class="img-fluid rounded" />
+                  </p>
+                </div>
+                <div class="col-lg-5 mr-auto order-2 order-lg-1">
+                  <h2 class="mb-3">
+                      Third meal - <%=dailyDiets[1].thirdMeal.name%>
+                  </h2>
+                  <% dailyDiets[1].thirdMeal.ingredients.forEach(function(ingredient){ %>
+                    <p> <%=ingredient%></p>
+                  <% } )%>
+                  <!-- <p class="mb-4">
+                     calories:  <%=dailyDiets[1].thirdMeal.calories%>
+                    
+                     fats:  <%=dailyDiets[1].thirdMeal.fats%>
+                  
+                     proteins:  <%=dailyDiets[1].thirdMeal.proteins%>
+                  
+                        carbs:  <%=dailyDiets[1].thirdMeal.carbs%>
+                      </p> -->
+                      <a href=<%=dailyDiets[1].thirdMeal.findOutMore%>>Find Out How To Prepare It </a>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="site-section border-top" id="03">
+              <h2 class="site-section-heading text-center" }>
+                <strong>Wednesday</strong>
+              </h2>
+              <br /><br /><br />
+        
+              <div class="site-section">
+              <div class="container" style="margin-right:40px;">
+                <div class="row">
+                  <div class="col-lg-6 order-1 order-lg-2">
+                    <p class="mb-5">
+                      <img src=<%=dailyDiets[2].firstMeal.imageUrl%> alt="Image"
+                      class="img-fluid rounded" />
+                    </p>
+                  </div>
+                  <div class="col-lg-5 mr-auto order-2 order-lg-1">
+                    <h2 class="mb-3">
+                      First meal - <%=dailyDiets[2].firstMeal.name%>
+                    </h2>
+                    <% dailyDiets[2].firstMeal.ingredients.forEach(function(ingredient){ %>
+                      <p> <%=ingredient%></p>
+                    <% } )%>
+                   
+                    <!-- <p class="mb-4">
+                        calories:  <%=dailyDiets[2].firstMeal.calories%>
+                       
+                        fats:  <%=dailyDiets[2].firstMeal.fats%>
+                       
+                        proteins:  <%=dailyDiets[2].firstMeal.proteins%>
+                      
+                           carbs:  <%=dailyDiets[2].firstMeal.carbs%>
+                         </p> -->
+                         <a href=<%=dailyDiets[2].firstMeal.findOutMore%>>Find Out How To Prepare It </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="site-section">
+              <div class="container" style="margin-right:40px;">
+                <div class="row">
+                  <div class="col-lg-6 order-1 order-lg-2">
+                    <p class="mb-5">
+                      <img src=<%=dailyDiets[2].secondMeal.imageUrl%> alt="Image"
+                      class="img-fluid rounded" />
+                    </p>
+                  </div>
+                  <div class="col-lg-5 mr-auto order-2 order-lg-1">
+                    <h2 class="mb-3">
+                      Second meal - <%=dailyDiets[2].secondMeal.name%>
+                    </h2>
+                    <% dailyDiets[2].secondMeal.ingredients.forEach(function(ingredient){ %>
+                      <p> <%=ingredient%></p>
+                    <% } )%>
+                    <!-- <p class="mb-4">
+                        calories:  <%=dailyDiets[2].secondMeal.calories%>
+                      
+                        fats:  <%=dailyDiets[2].secondMeal.fats%>
+                     
+                        proteins:  <%=dailyDiets[2].secondMeal.proteins%>
+                      
+                           carbs:  <%=dailyDiets[2].secondMeal.carbs%>
+                         </p> -->
+                         <a href=<%=dailyDiets[2].secondMeal.findOutMore%>>Find Out How To Prepare It </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="site-section">
+                <div class="container" style="margin-right:40px;">
+                  <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2">
+                      <p class="mb-5">
+                        <img src=<%=dailyDiets[2].thirdMeal.imageUrl%> alt="Image"
+                        class="img-fluid rounded" />
+                      </p>
+                    </div>
+                    <div class="col-lg-5 mr-auto order-2 order-lg-1">
+                      <h2 class="mb-3">
+                          Third meal - <%=dailyDiets[2].thirdMeal.name%>
+                      </h2>
+                      <% dailyDiets[2].thirdMeal.ingredients.forEach(function(ingredient){ %>
+                        <p> <%=ingredient%></p>
+                      <% } )%>
+                      <!-- <p class="mb-4">
+                         calories:  <%=dailyDiets[2].thirdMeal.calories%>
+                       
+                         fats:  <%=dailyDiets[2].thirdMeal.fats%>
+                       
+                         proteins:  <%=dailyDiets[2].thirdMeal.proteins%>
+                     
+                            carbs:  <%=dailyDiets[2].thirdMeal.carbs%>
+                          </p> -->
+                          <a href=<%=dailyDiets[2].thirdMeal.findOutMore%>>Find Out How To Prepare It </a>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+
+<div class="site-section border-top" id="04">
+    <h2 class="site-section-heading text-center" }>
+      <strong>Thursday</strong>
+    </h2>
+    <br /><br /><br />
+
+    <div class="site-section">
+    <div class="container" style="margin-right:40px;">
+      <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2">
+          <p class="mb-5">
+            <img src=<%=dailyDiets[3].firstMeal.imageUrl%> alt="Image"
+            class="img-fluid rounded" />
+          </p>
+        </div>
+        <div class="col-lg-5 mr-auto order-2 order-lg-1">
+          <h2 class="mb-3">
+            First meal - <%=dailyDiets[3].firstMeal.name%>
+          </h2>
+          <% dailyDiets[3].firstMeal.ingredients.forEach(function(ingredient){ %>
+            <p> <%=ingredient%></p>
+          <% } )%>
+         
+          <!-- <p class="mb-4">
+              calories:  <%=dailyDiets[3].firstMeal.calories%>
+             
+              fats:  <%=dailyDiets[3].firstMeal.fats%>
+            
+              proteins:  <%=dailyDiets[3].firstMeal.proteins%>
+           
+                 carbs:  <%=dailyDiets[3].firstMeal.carbs%>
+               </p> -->
+               <a href=<%=dailyDiets[3].firstMeal.findOutMore%>>Find Out How To Prepare It </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container" style="margin-right:40px;">
+      <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2">
+          <p class="mb-5">
+            <img src=<%=dailyDiets[3].secondMeal.imageUrl%> alt="Image"
+            class="img-fluid rounded" />
+          </p>
+        </div>
+        <div class="col-lg-5 mr-auto order-2 order-lg-1">
+          <h2 class="mb-3">
+            Second meal - <%=dailyDiets[3].secondMeal.name%>
+          </h2>
+          <% dailyDiets[3].secondMeal.ingredients.forEach(function(ingredient){ %>
+            <p> <%=ingredient%></p>
+          <% } )%>
+          <!-- <p class="mb-4">
+              calories:  <%=dailyDiets[3].secondMeal.calories%>
+            
+              fats:  <%=dailyDiets[3].secondMeal.fats%>
+          
+              proteins:  <%=dailyDiets[3].secondMeal.proteins%>
+           
+                 carbs:  <%=dailyDiets[3].secondMeal.carbs%>
+               </p> -->
+               <a href=<%=dailyDiets[3].secondMeal.findOutMore%>>Find Out How To Prepare It </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+      <div class="container" style="margin-right:40px;">
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <p class="mb-5">
+              <img src=<%=dailyDiets[3].thirdMeal.imageUrl%> alt="Image"
+              class="img-fluid rounded" />
+            </p>
+          </div>
+          <div class="col-lg-5 mr-auto order-2 order-lg-1">
+            <h2 class="mb-3">
+                Third meal - <%=dailyDiets[3].thirdMeal.name%>
+            </h2>
+            <% dailyDiets[3].thirdMeal.ingredients.forEach(function(ingredient){ %>
+              <p> <%=ingredient%></p>
+            <% } )%>
+            <!-- <p class="mb-4">
+               calories:  <%=dailyDiets[3].thirdMeal.calories%>
+           
+               fats:  <%=dailyDiets[3].thirdMeal.fats%>
+             
+               proteins:  <%=dailyDiets[3].thirdMeal.proteins%>
+            
+                  carbs:  <%=dailyDiets[3].thirdMeal.carbs%>
+                </p> -->
+                <a href=<%=dailyDiets[3].thirdMeal.findOutMore%>>Find Out How To Prepare It </a>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<div class="site-section border-top" id="05">
+    <h2 class="site-section-heading text-center" }>
+      <strong>Friday</strong>
+    </h2>
+    <br /><br /><br />
+
+    <div class="site-section">
+    <div class="container" style="margin-right:40px;">
+      <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2">
+          <p class="mb-5">
+            <img src=<%=dailyDiets[4].firstMeal.imageUrl%> alt="Image"
+            class="img-fluid rounded" />
+          </p>
+        </div>
+        <div class="col-lg-5 mr-auto order-2 order-lg-1">
+          <h2 class="mb-4">
+            First meal - <%=dailyDiets[4].firstMeal.name%>
+          </h2>
+          <% dailyDiets[4].firstMeal.ingredients.forEach(function(ingredient){ %>
+            <p><%=ingredient%></p>
+          <% } )%>
+         
+          <p class="mb-4">
+              calories:  <%=dailyDiets[4].firstMeal.calories%>
+            
+              fats:  <%=dailyDiets[4].firstMeal.fats%>
+            
+              proteins:  <%=dailyDiets[4].firstMeal.proteins%>
+           
+                 carbs:  <%=dailyDiets[4].firstMeal.carbs%>
+               </p>
+               <a href=<%=dailyDiets[4].firstMeal.findOutMore%>>Find Out How To Prepare It </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container" style="margin-right:40px;">
+      <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2">
+          <p class="mb-5">
+            <img src=<%=dailyDiets[4].secondMeal.imageUrl%> alt="Image"
+            class="img-fluid rounded" />
+          </p>
+        </div>
+        <div class="col-lg-5 mr-auto order-2 order-lg-1">
+          <h2 class="mb-4">
+            Second meal - <%=dailyDiets[4].secondMeal.name%>
+          </h2>
+          <% dailyDiets[4].secondMeal.ingredients.forEach(function(ingredient){ %>
+            <p><%=ingredient%></p>
+          <% } )%>
+          <p class="mb-4">
+              calories:  <%=dailyDiets[4].secondMeal.calories%>
+             
+              fats:  <%=dailyDiets[4].secondMeal.fats%>
+           
+              proteins:  <%=dailyDiets[4].secondMeal.proteins%>
+            
+                 carbs:  <%=dailyDiets[4].secondMeal.carbs%>
+               </p>
+               <a href=<%=dailyDiets[4].secondMeal.findOutMore%>>Find Out How To Prepare It </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+      <div class="container" style="margin-right:40px;">
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <p class="mb-5">
+              <img src=<%=dailyDiets[4].thirdMeal.imageUrl%> alt="Image"
+              class="img-fluid rounded" />
+            </p>
+          </div>
+          <div class="col-lg-5 mr-auto order-2 order-lg-1">
+            <h2 class="mb-4">
+                Third meal - <%=dailyDiets[4].thirdMeal.name%>
+            </h2>
+            <% dailyDiets[4].thirdMeal.ingredients.forEach(function(ingredient){ %>
+              <p> <%=ingredient%></p>
+            <% } )%>
+            <p class="mb-4">
+               calories:  <%=dailyDiets[4].thirdMeal.calories%>
+              
+               fats:  <%=dailyDiets[4].thirdMeal.fats%>
+              
+               proteins:  <%=dailyDiets[4].thirdMeal.proteins%>
+             
+                  carbs:  <%=dailyDiets[4].thirdMeal.carbs%>
+                </p>
+                <a href=<%=dailyDiets[4].thirdMeal.findOutMore%>>Find Out How To Prepare It </a>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+<div class="site-section border-top" id="06">
+    <h2 class="site-section-heading text-center" }>
+      <strong>Saturday</strong>
+    </h2>
+    <br /><br /><br />
+
+    <div class="site-section">
+    <div class="container" style="margin-right:40px;">
+      <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2">
+          <p class="mb-5">
+            <img src=<%=dailyDiets[5].firstMeal.imageUrl%> alt="Image"
+            class="img-fluid rounded" />
+          </p>
+        </div>
+        <div class="col-lg-5 mr-auto order-2 order-lg-1">
+          <h2 class="mb-4">
+            First meal - <%=dailyDiets[5].firstMeal.name%>
+          </h2>
+          <% dailyDiets[5].firstMeal.ingredients.forEach(function(ingredient){ %>
+            <p><%=ingredient%></p>
+          <% } )%>
+         
+          <p class="mb-4">
+              calories:  <%=dailyDiets[5].firstMeal.calories%>
+            
+              fats:  <%=dailyDiets[5].firstMeal.fats%>
+            
+              proteins:  <%=dailyDiets[5].firstMeal.proteins%>
+             
+                 carbs:  <%=dailyDiets[5].firstMeal.carbs%>
+               </p>
+               <a href=<%=dailyDiets[5].firstMeal.findOutMore%>>Find Out How To Prepare It </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container" style="margin-right:40px;">
+      <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2">
+          <p class="mb-5">
+            <img src=<%=dailyDiets[5].secondMeal.imageUrl%> alt="Image"
+            class="img-fluid rounded" />
+          </p>
+        </div>
+        <div class="col-lg-5 mr-auto order-2 order-lg-1">
+          <h2 class="mb-4">
+            Second meal - <%=dailyDiets[5].secondMeal.name%>
+          </h2>
+          <% dailyDiets[5].secondMeal.ingredients.forEach(function(ingredient){ %>
+            <p><%=ingredient%></p>
+          <% } )%>
+          <p class="mb-4">
+              calories:  <%=dailyDiets[5].secondMeal.calories%>
+             
+              fats:  <%=dailyDiets[5].secondMeal.fats%>
+             
+              proteins:  <%=dailyDiets[5].secondMeal.proteins%>
+            
+                 carbs:  <%=dailyDiets[5].secondMeal.carbs%>
+               </p>
+               <a href=<%=dailyDiets[5].secondMeal.findOutMore%>>Find Out How To Prepare It </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+      <div class="container" style="margin-right:40px;">
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <p class="mb-5">
+              <img src=<%=dailyDiets[5].thirdMeal.imageUrl%> alt="Image"
+              class="img-fluid rounded" />
+            </p>
+          </div>
+          <div class="col-lg-5 mr-auto order-2 order-lg-1">
+            <h2 class="mb-4">
+                Third meal - <%=dailyDiets[5].thirdMeal.name%>
+            </h2>
+            <% dailyDiets[5].thirdMeal.ingredients.forEach(function(ingredient){ %>
+              <p> <%=ingredient%></p>
+            <% } )%>
+            <p class="mb-4">
+               calories:  <%=dailyDiets[5].thirdMeal.calories%>
+              
+               fats:  <%=dailyDiets[5].thirdMeal.fats%>
+             
+               proteins:  <%=dailyDiets[5].thirdMeal.proteins%>
+              
+                  carbs:  <%=dailyDiets[5].thirdMeal.carbs%>
+                </p>
+                <a href=<%=dailyDiets[5].thirdMeal.findOutMore%>>Find Out How To Prepare It </a>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section border-top" id="07">
+        <h2 class="site-section-heading text-center" }>
+          <strong>Saturday</strong>
+        </h2>
+        <br /><br /><br />
+    
+        <div class="site-section">
+        <div class="container" style="margin-right:40px;">
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2">
+              <p class="mb-5">
+                <img src=<%=dailyDiets[6].firstMeal.imageUrl%> alt="Image"
+                class="img-fluid rounded" />
+              </p>
+            </div>
+            <div class="col-lg-5 mr-auto order-2 order-lg-1">
+              <h2 class="mb-4">
+                First meal - <%=dailyDiets[6].firstMeal.name%>
+              </h2>
+              <% dailyDiets[6].firstMeal.ingredients.forEach(function(ingredient){ %>
+                <p><%=ingredient%></p>
+              <% } )%>
+             
+              <p class="mb-4">
+                  calories:  <%=dailyDiets[6].firstMeal.calories%>
+                 <
+                  fats:  <%=dailyDiets[6].firstMeal.fats%>
+                
+                  proteins:  <%=dailyDiets[6].firstMeal.proteins%>
+                
+                     carbs:  <%=dailyDiets[6].firstMeal.carbs%>
+                   </p>
+                   <a href=<%=dailyDiets[6].firstMeal.findOutMore%>>Find Out How To Prepare It </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="site-section">
+        <div class="container" style="margin-right:40px;">
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2">
+              <p class="mb-5">
+                <img src=<%=dailyDiets[6].secondMeal.imageUrl%> alt="Image"
+                class="img-fluid rounded" />
+              </p>
+            </div>
+            <div class="col-lg-5 mr-auto order-2 order-lg-1">
+              <h2 class="mb-4">
+                Second meal - <%=dailyDiets[6].secondMeal.name%>
+              </h2>
+              <% dailyDiets[6].secondMeal.ingredients.forEach(function(ingredient){ %>
+                <p> <%=ingredient%></p>
+              <% } )%>
+              <p class="mb-4">
+                  calories:  <%=dailyDiets[6].secondMeal.calories%>
+                
+                  fats:  <%=dailyDiets[6].secondMeal.fats%>
+                
+                  proteins:  <%=dailyDiets[6].secondMeal.proteins%>
+               
+                     carbs:  <%=dailyDiets[6].secondMeal.carbs%>
+                   </p>
+                   <a href=<%=dailyDiets[6].secondMeal.findOutMore%>>Find Out How To Prepare It </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="site-section">
+          <div class="container" style="margin-right:40px;">
+            <div class="row">
+              <div class="col-lg-6 order-1 order-lg-2">
+                <p class="mb-5">
+                  <img src=<%=dailyDiets[6].thirdMeal.imageUrl%> alt="Image"
+                  class="img-fluid rounded" />
+                </p>
+              </div>
+              <div class="col-lg-5 mr-auto order-2 order-lg-1">
+                <h2 class="mb-4">
+                    Third meal - <%=dailyDiets[6].thirdMeal.name%>
+                </h2>
+                <% dailyDiets[6].thirdMeal.ingredients.forEach(function(ingredient){ %>
+                  <p> <%=ingredient%></p>
+                <% } )%>
+                <p class="mb-4">
+                   calories:  <%=dailyDiets[6].thirdMeal.calories%>
+                 
+                   fats:  <%=dailyDiets[6].thirdMeal.fats%>
+                  
+                   proteins:  <%=dailyDiets[6].thirdMeal.proteins%>
+                 
+                      carbs:  <%=dailyDiets[6].thirdMeal.carbs%>
+                    </p>
+                    <a href=<%=dailyDiets[6].thirdMeal.findOutMore%>>Find Out How To Prepare It </a>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -14,7 +14,7 @@ module.exports.register = function(req, res) {
   User.register({ username: req.body.username }, req.body.password)
     .then(() => {
       passport.authenticate("local")(req, res, function() {
-        res.send("registered");
+        res.redirect("dietPage");
       });
     })
     .catch(err => {
@@ -37,7 +37,11 @@ module.exports.login = function(req, res) {
       res.send(err);
     } else {
       passport.authenticate("local")(req, res, function() {
-        res.send("login with success");
+        if (req.user.diets.length > 0) {
+          res.redirect("/api/program");
+        } else {
+          res.redirect("/api/diet");
+        }
       });
     }
   });
@@ -68,7 +72,7 @@ module.exports.subscribeToDailyTextMessage = function(req, res) {
       foundUser.phoneNumber,
       process.env.NEXMO_HELLO_TEXT
     );
-    res.send("Subscribed to daily text messages");
+    res.redirect("/api/program");
   });
 };
 module.exports.unsubscribeToDailyTextMessage = function(req, res) {

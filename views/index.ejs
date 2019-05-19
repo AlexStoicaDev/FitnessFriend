@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FitnessFriend</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="css/aos.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body style="background-image: url('images/img2.jpeg');overflow-x: hidden;">
+    <div class="site-navbar-wrap js-site-navbar bg-white">
+      <div class="container">
+        <div class="site-navbar bg-light">
+          <div class="py-1">
+            <div class="row align-items-center">
+              <div class="col-2">
+                <h2 class="mb-0 site-logo"><strong>Fitness</strong>Friend</h2>
+              </div>
+              <div class="col-10">
+                <nav class="site-navigation text-right" role="navigation">
+                  <div class="container">
+                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                      <a
+                        href="#"
+                        class="site-menu-toggle js-menu-toggle text-black"
+                        ><span class="icon-menu h3"></span
+                      ></a>
+                    </div>
+
+                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+                      <%if (!isAuthenticated) { %>
+                      <li><a href="/api/loginPage">Log in</a></li>
+                      <% } %> <%if (!isAuthenticated) { %>
+                      <li><a href="/api/loginPage">Register</a></li>
+                      <% } %> <%if (isAuthenticated && hasDiet) { %>
+                      <li><a href="/api/program">My Meal Plan</a></li>
+                      <% } %> <%if (isAuthenticated) { %>
+                      <li><a href="/api/logout">Log out</a></li>
+                      <% } %>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-blocks-cover inner-page">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-7 text-center" data-aos="fade">
+          <br /><br /><br /><br /><br /><br /><br />
+          <h1 style="color:black">Welcome To Your Fitness Friend</h1>
+          <span class="caption d-block">Find The Healthy Way</span>
+          <%if (!hasDiet) { %>
+          <a
+            style="margin-top: 30px;"
+            type="button"
+            class="btn btn-success"
+            href="/api/createMealPlanButton"
+            role="button"
+          >
+            Create A Meal Plan
+          </a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

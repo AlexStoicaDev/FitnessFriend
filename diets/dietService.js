@@ -17,7 +17,7 @@ module.exports.createDiet = function(req, res) {
       addDietToUserDietArray(userDiet, foundUser);
       userDiet.save();
       foundUser.save();
-      res.send("diet has been created");
+      res.redirect("program");
     });
   });
 };
@@ -89,6 +89,7 @@ function createDietForUser(createDietInDTO, foundUser, callback) {
       createDietInDTO.age
     )
   );
+
   getDailyDiets(createDietInDTO.foodRestriction, calories, function(
     dailyDiets
   ) {
@@ -148,8 +149,13 @@ function getEdamamRequestString(foodRestriction, calories) {
     "&app_key=" +
     process.env.EDAMAM_KEY;
   requestString +=
-    "&from=0&to=21&calories=" + (calories - 50) + "-" + (calories + 50);
-  if (foodRestriction) {
+    "&from=0&to=21&health=alcohol-free&ingr=5&calories=" +
+    (calories - 50) +
+    "-" +
+    (calories + 50);
+
+  // requestString += "&from=0&to=21&ingr=5";
+  if (foodRestriction !== "none") {
     requestString += "&Health=" + foodRestriction;
   }
   return requestString;
